@@ -1,31 +1,33 @@
 let state = {count: 0}
-let action = {type: 'INCREASE_COUNT'}
 
-function changeState(state, action){
+// reducer
+const changeState = (state, action) => {
   switch (action.type) {
-    case 'INCREASE_COUNT':
+    case 'INCREASE_COUNT': 
       return {count: state.count + 1}
-    default:
-      return state;
+    default: 
+      return state; 
   }
 }
 
-function render(){
+// display on page (w/out React)
+const render = () => {
   document.body.textContent = state.count
 }
 
-function dispatch(action){
+const dispatch = action => {
   state = changeState(state, action)
-  render()
+  render(); 
 }
 
-render(); 
-
+dispatch({type: 'INCREASE_COUNT'})
+dispatch({type: 'INCREASE_COUNT'})
 dispatch({type: 'INCREASE_COUNT'})
 
-dispatch({type: 'INCREASE_COUNT'})
+// render(); 
 
-dispatch({type: 'INCREASE_COUNT'})
+
+
 
 
 
